@@ -5,5 +5,8 @@ function Frame() {
 
 Frame.prototype.firstRoll = function(pinsDown) {
   this.roll1 = pinsDown;
-  if(pinsDown === 10) { this.roll2 = 0 }
+  if(pinsDown === 10) {
+    this.roll2 = 0
+    return 'strike!'
+  }
 }

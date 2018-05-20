@@ -1,5 +1,9 @@
 describe('Frame', function() {
-  var frame = new Frame();
+  var frame
+
+  beforeEach(function () {
+    frame = new Frame();
+  });
 
   describe('Frame', function() {
     it('should default roll 1 and 2 to nothing', function() {
@@ -16,6 +20,7 @@ describe('Frame', function() {
     it('should end the frame if strike', function() {
       frame.firstRoll(10);
       expect(frame.roll2).toEqual(0);
+      expect(frame.firstRoll(10)).toEqual('strike!')
     });
   });
 });
