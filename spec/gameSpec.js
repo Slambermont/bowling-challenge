@@ -31,4 +31,21 @@ describe('Frame', function() {
       }).toThrow('Not enough pins left');
     });
   });
+
+  describe('#secondRoll', function() {
+    it('should count number of pins down in Frame object', function() {
+      frame.secondRoll(4);
+      expect(frame.roll2).toEqual(4);
+    });
+    it('should throw error if knocking more pins than there are', function() {
+      expect(function() {
+        frame.firstRoll(4);
+        frame.secondRoll(7);
+      }).toThrow('Not enough pins left');
+    });
+    it('should give a spare message if rolling a spare', function() {
+      frame.firstRoll(4);
+      expect(frame.secondRoll(6)).toEqual('spare!');
+    });
+  });
 });

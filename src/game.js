@@ -14,3 +14,13 @@ Frame.prototype.firstRoll = function(pinsDown) {
   }
   this.roll1 = pinsDown;
 }
+
+Frame.prototype.secondRoll = function(pinsDown) {
+  if(pinsDown > 10-this.roll1) {
+    throw 'Not enough pins left'
+  } else if(pinsDown === 10-this.roll1) {
+    return 'spare!'
+  }
+  this.roll2 = pinsDown
+  this.completed = true
+}
