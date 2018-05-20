@@ -10,6 +10,9 @@ describe('Frame', function() {
       expect(frame.roll1).toEqual('-')
       expect(frame.roll2).toEqual('-')
     });
+    it('should default to not completed until roll2 happens', function() {
+      expect(frame.completed).toEqual(false)
+    });
   });
 
   describe('#firstRoll', function() {
@@ -21,6 +24,11 @@ describe('Frame', function() {
       frame.firstRoll(10);
       expect(frame.roll2).toEqual(0);
       expect(frame.firstRoll(10)).toEqual('strike!')
+    });
+    it('should throw error if knocking more pins than there are', function() {
+      expect(function() {
+        frame.firstRoll(11)
+      }).toThrow('Not enough pins left');
     });
   });
 });
