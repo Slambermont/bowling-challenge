@@ -5,38 +5,34 @@ describe('Game', function() {
     game = new Game;
   });
 
-  describe('#scores', function() {
-    it('should default to an empty array', function(){
-      expect(game.scores).toEqual([]);
-    });
-  });
+  describe('play', function() {
 
-  describe('#counter', function() {
-    it('should increase by 1 every frame', function() {
-      game.frameScore(3,4)
-      expect(game.counter).toEqual(1);
+    it('should log frame 1 roll 1 result', function() {
+      game.play(3);
+      expect(game.scores[`frame 1`][`roll 1`]).toEqual(3)
     });
-    it('should end game after 10 frames', function() {
-      for(var i = 0; i < 9; i++){
-        game.frameScore(3,4);
-      }
-      expect(game.frameScore(3,4)).toEqual('Game finished!')
+    it('should log frame 1 roll 2 result', function() {
+      game.play(3);
+      game.play(4);
+      expect(game.scores[`frame 1`][`roll 2`]).toEqual(4)
     });
-  });
-
-  describe('#frameScore', function() {
-    it('should add both frame scores to the total counter', function() {
-      game.frameScore(3, 4)
-      expect(game.scores).toEqual([7])
+    it('should log frame 2 roll 1 result', function() {
+      game.play(3);
+      game.play(4);
+      game.play(2);
+      expect(game.scores[`frame 2`][`roll 1`]).toEqual(2)
     });
-  });
-
-  describe('#finalScore', function() {
-    it('should add add all scores together', function() {
-      for(var i = 0; i < 10; i++){
-        game.frameScore(3,4);
-      }
-      expect(game.finalScore()).toEqual(70)
+    it('should add up roll 1 and 2', function() {
+      game.play(3);
+      game.play(4);
+      expect(game.total[1]).toEqual(7)
+    });
+    it('should add total from previous frame to current frame total', function(){
+      game.play(3);
+      game.play(4);
+      game.play(3);
+      game.play(4);
+      expect(game.total[2]).toEqual(14)
     });
   });
 });
