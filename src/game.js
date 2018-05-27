@@ -6,6 +6,9 @@ function Game() {
 Game.prototype.frameScore = function(roll1, roll2) {
   this.scores.push(roll1+roll2)
   this.counter += 1
+  if(this.counter === 10) {
+    return 'Game finished!'
+  }
 }
 
 Game.prototype.finalScore = function() {

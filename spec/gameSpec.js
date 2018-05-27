@@ -16,6 +16,12 @@ describe('Game', function() {
       game.frameScore(3,4)
       expect(game.counter).toEqual(1);
     });
+    it('should end game after 10 frames', function() {
+      for(var i = 0; i < 9; i++){
+        game.frameScore(3,4);
+      }
+      expect(game.frameScore(3,4)).toEqual('Game finished!')
+    });
   });
 
   describe('#frameScore', function() {
