@@ -14,7 +14,16 @@ describe('Game', function() {
   describe('#frameScore', function() {
     it('should add both frame scores to the total counter', function() {
       game.frameScore(3, 4)
-      expect(game.scores).toEqual([[3, 4]])
+      expect(game.scores).toEqual([7])
+    });
+  });
+
+  describe('#finalScore', function() {
+    it('should add add all scores together', function() {
+      for(var i = 0; i < 10; i++){
+        game.frameScore(3,4);
+      }
+      expect(game.finalScore()).toEqual(70)
     });
   });
 });

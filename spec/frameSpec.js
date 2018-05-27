@@ -9,8 +9,8 @@ describe('Frame', function() {
 
   describe('Frame', function() {
     it('should default roll 1 and 2 to nothing', function() {
-      expect(frame.roll1).toEqual('-')
-      expect(frame.roll2).toEqual('-')
+      expect(frame.roll1).toEqual(null)
+      expect(frame.roll2).toEqual(null)
     });
     it('should default to not completed until roll2 happens', function() {
       expect(frame.completed).toEqual(false)

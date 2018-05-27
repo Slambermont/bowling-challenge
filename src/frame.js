@@ -1,6 +1,6 @@
 function Frame() {
-  this.roll1 = '-';
-  this.roll2 = '-';
+  this.roll1 = null;
+  this.roll2 = null;
   this.completed = false
 }
 
