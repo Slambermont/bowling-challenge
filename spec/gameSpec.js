@@ -11,6 +11,13 @@ describe('Game', function() {
     });
   });
 
+  describe('#counter', function() {
+    it('should increase by 1 every frame', function() {
+      game.frameScore(3,4)
+      expect(game.counter).toEqual(1);
+    });
+  });
+
   describe('#frameScore', function() {
     it('should add both frame scores to the total counter', function() {
       game.frameScore(3, 4)
