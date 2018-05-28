@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+  color: red;
+}
+
+.score {
+  margin :100px;
+  width: 1000px;
+  height: 150px;
+  background-color: pink;
+  display: flex;
+}
+.frame {
+  width: 100px;
+  height: 150px;
+}
+.points {
+  width: 100px;
+  height: 50px;
+  display: flex;
+}
+.roll1 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.roll2 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.frame-total {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}

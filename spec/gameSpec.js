@@ -34,5 +34,21 @@ describe('Game', function() {
       game.play(4);
       expect(game.total[2]).toEqual(14)
     });
+    it('should add extra points after a spare', function(){
+      game.play(3);
+      game.play(7);
+      game.play(4);
+      game.play(2);
+      expect(game.total[1]).toEqual(14)
+      expect(game.total[2]).toEqual(20)
+    });
+    it('should add extra points after a strike', function(){
+      game.play(10);
+      game.play(0);
+      game.play(4);
+      game.play(2);
+      expect(game.total[1]).toEqual(16)
+      expect(game.total[2]).toEqual(22)
+    });
   });
 });
